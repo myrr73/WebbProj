@@ -19,7 +19,7 @@ export default new Vuex.Store({
 
   getters: {
     getProducts: state => {
-      return state.myJson.SPRALLCLOTH;
+      return state.myJson;
     }
   },
   mutations: {
