@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Hem from './views/Hem.vue'
 import OmOss from './views/OmOss.vue'
 import Butik from './views/Butik.vue'
+import Kundvagn from './views/Kundvagn.vue'
 
 Vue.use(Router)
 
@@ -24,5 +25,10 @@ export default new Router({
       component: Butik
     },
     
+    {
+      path: '/Kundvagnn',
+      name: 'Cart',
+      component: Kundvagn
+    },
   ]
 })
