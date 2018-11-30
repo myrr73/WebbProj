@@ -2,6 +2,7 @@
   <div class="butik">
     <h1></h1>
     <Katalog/>
+    
   </div>
 </template>
 

@@ -1,7 +1,9 @@
 <template>
 
   <div id="app">
-    <div id="bg"></div>
+    <!-- <div id="bg"></div> -->
+    <div id="banner"> <img alt="" src="./assets/sprallig.svg"></div>
+
     <div id="nav">
       <div id="inner">
       <router-link tag="li" to="/">Hem</router-link> 
@@ -10,6 +12,7 @@
       <router-link tag="li" to="/Kundvagn">Kundvagn</router-link>
       </div>
     </div>
+    
     <router-view/>
     <section></section>
     <div id="foot">
@@ -22,25 +25,36 @@
 
 body, #app {
   border: 0;
-  pading: 0;
+  padding: 0;
   margin: 0;
 }
 
-#bg {
-  background-color:rgba(141, 141, 141, 0.76);
-  position:absolute;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
+// #bg {
+//   background-color:rgba(141, 141, 141, 0.76);
+//   position:absolute;
+//   width: 100%;
+//   height: 100%;
+//   z-index: -1;
 
-}
+// }
 
 #app{
+  
 
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
+  background-color:rgba(141, 141, 141, 0.76);
+  
+  
     
+    #banner {
+      min-height: 5vh;
+      max-height: 10vh;
+      width: 100%;
+      
+      img{
+          max-height: 50px;
+          width: 100%;
+      }
+    }
 
   #nav {
    
@@ -54,6 +68,7 @@ body, #app {
     font-size: 16px;
     font-style:italic;
     position: relative;
+    
     #inner{
       margin: 0 auto;
       max-width: 1200px;
@@ -80,9 +95,6 @@ body, #app {
     
   }
 }
-   
-
-
       section{
 
         flex:1;
