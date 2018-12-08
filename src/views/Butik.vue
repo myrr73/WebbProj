@@ -13,6 +13,14 @@ import Katalog from '@/components/Katalog.vue'           //Hämta components och
 
 export default {
   name: 'butik',
+
+  data(){
+    return{
+        load:true,
+    }
+},
+
+  
   components: {
    
           Katalog                                 //Definera components till tag

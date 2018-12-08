@@ -7,6 +7,18 @@
 </template>
 
 
+<script>
+export default {
+  name: 'Omoss',
+  
+  data(){
+    return{
+        load:true,
+    }
+},
+}
+</script>
+
 <style lang="scss">
 
 </style>

@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Hem from './views/Hem.vue'
-import OmOss from './views/OmOss.vue'
-import Butik from './views/Butik.vue'
-import Kundvagn from './views/Kundvagn.vue'
+// import Hem from './views/Hem.vue'
+// import OmOss from './views/OmOss.vue'
+// import Butik from './views/Butik.vue'
+// import Kundvagn from './views/Kundvagn.vue'
 
 Vue.use(Router)
 
@@ -12,23 +12,23 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: Hem
+      component: () => import('./views/Hem.vue')
     },
     {
       path: '/OmOss',
       name: 'info',
-      component: OmOss
+      component: () => import('./views/OmOss.vue')
     },
     {
       path: '/Butik',
       name: 'Shop',
-      component: Butik
+      component: () => import('./views/Butik.vue')
     },
     
     {
-      path: '/Kundvagnn',
-      name: 'Cart',
-      component: Kundvagn
+      path: '/Kundvagn',
+      name: 'Kundvagn',
+      component: () => import('./views/Kundvagn.vue')
     },
   ]
 })

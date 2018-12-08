@@ -5,6 +5,7 @@ import json from '../SPRALLCLOTH.json'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
+  
   state: {
 
     inCart: [],
@@ -15,19 +16,28 @@ export default new Vuex.Store({
  
   getters: {
     getProducts: state => {
-      return state.myJson;
+      return state.myJson.inStock;
     },
     inCart: state=>{
       return state.inCart;
     },
+    
   },
   mutations: {
-    ADD_TO_CART(state, product_id) { state.inCart.push(product_id); },
+    ADD_TO_CART(state, id) { state.inCart.push(id); },
+
+    REMOVE_FROM_CART(state, index) { state.inCart.splice(index, 1);},
     
   },
   
 
   actions: {
-    addToCart(product_id) { commit('ADD_TO_CART', product_id); },
+    addToCart(context, id) { context.commit('ADD_TO_CART', id); },
+
+    removeFromCart(context, index) { context.commit('REMOVE_FROM_CART', index); },
   },
+
+    
+  
+  
 })

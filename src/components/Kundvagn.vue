@@ -1,6 +1,6 @@
 <template>
-<div>
-    <button class="btn btn-primary" data-toggle="modal" data-target="#Kundvagn"> Kundvagn ({{ artInCart }})</button>
+<!-- <div>
+    
     <div id="Kundvagn" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -13,25 +13,29 @@
             <div class="modal-body">
                 <table class="table">
                     <tbody>
-                        <tr v-for="products in cart" >
-                        <td>{{ products.product_name }}</td>
-                        <td>{{ products.product_price | {kronor} }}</td>
-                        </tr>
+                        <tr v-for="(products, index) in cart">
+                            <td>{{ products.name }}</td>
+                            <td>SEK: {{ products.price }}:-</td>
+                            <td>
+                             <button class="btn btn-sm btn-danger" @click="removeFromCart(index)">&times;</button>
+                            </td>
+                            </tr>
                         <tr>
                             <th></th>
-                            <th>{{ summa }}</th>
+                            <th>SEK: {{ summa }}:-</th>
                         </tr>   
                     </tbody>
                 </table>
             </div>
             <div class="modal-footer">
             <button class="btn btn-secondary" data-dismiss="modal">Fortsätt shoppa</button>
-            <button class="btn btn-primary">Gå till kundvagn</button>
+            
+           
             </div>
             </div>
         </div>
     </div>
-</div> 
+</div>  -->
 </template>
 
 
@@ -44,12 +48,29 @@
 export default {
   name: 'Kundvagn',
   
-  computed: {
-      artInCart() {return this.$store.getters.inCart.length; },
-      summa() {
-      return this.cart.reduce((acc, cur) => acc += cur.product_price, 0);
-        
+data(){
+    return{
+        load:true,
+    }
+},
+  methods: {
+    removeFromCart(index) {
+      this.$store.dispatch('removeFromCart', index);
     },
+  },
+
+  
+  computed: {
+
+      inCart() {return this.$store.getters.inCart;},
+
+      artInCart() {return this.$store.getters.inCart.length; },
+
+      summa() {
+      return this.cart.reduce((acc, cur) => acc + cur.price, 0);
+    },
+
+    
     //            <-- cart() -->  
     // #1 .map gör så den loopar igenom min inCart array som innehåller arrayId för alla produkter där
     // #2 varje loop använder den .find som kollar igenom min getProducts array(lokalJson).
@@ -57,15 +78,26 @@ export default {
    cart() {
       return this.$store.getters.inCart.map((cartArt) => {
         return this.$store.getters.getProducts.find((getProductsArt) => {
-          return cartArt === getProductsArt.product_id;
+          return cartArt === getProductsArt.id;
         });
       });
     },
   },
     
-  filters: {
-      kronor: num => `SEK ${num / 100}`,
-    },
+  
   
 };
 </script>
+
+<style lang="scss" scoped>
+#cart{
+    
+    color:white;
+    background-color: black;
+    border-color:black;
+}
+
+
+
+
+</style>

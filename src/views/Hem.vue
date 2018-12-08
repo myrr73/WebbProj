@@ -10,6 +10,12 @@
 
 
 export default {
+
+  data(){
+    return{
+        load:true,
+    }
+},
   name: 'hem',
   components: {
       

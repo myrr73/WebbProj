@@ -9,7 +9,7 @@
       <router-link tag="li" to="/">Hem</router-link> 
       <router-link tag="li" to="/butik">Butik</router-link> 
       <router-link tag="li" to="/omoss">Om Oss</router-link>
-      <router-link tag="li" to="/Kundvagn">Kundvagn</router-link>
+      <router-link tag="li" to="/Kundvagn">Kundvagn ({{ artInCart }})</router-link>
       </div>
     </div>
     
@@ -20,6 +20,18 @@
     </div>
   </div>
 </template>
+<script>
+export default {
+  data(){
+    return{
+        load:true,
+    }
+},
+computed: {
+   artInCart() {return this.$store.getters.inCart.length; },
+}
+}
+</script>
 
 <style lang="scss">
 
@@ -40,8 +52,9 @@ body, #app {
 
 #app{
   
+  
 
-  background-color:rgba(141, 141, 141, 0.76);
+  // background-color:rgba(141, 141, 141, 0.76);
   
   
     
@@ -58,7 +71,7 @@ body, #app {
 
   #nav {
    
-    background-color:rgba(141, 141, 141, .6);
+    // background-color:rgba(141, 141, 141, .6);
     padding: 5px 0;
     border-radius: 5px;
     width: 100%;
@@ -102,6 +115,7 @@ body, #app {
       #foot {
         display: flex;
         justify-content: center;
+        
         
 
       }
