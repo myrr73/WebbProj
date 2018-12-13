@@ -1,40 +1,46 @@
 <template>
-    <div id="Katalog" class="container-my-5">
-      <div class="col-md-3">
-        <Kundvagn/>
-    </div>
-        <div class="row">
-      <Artiklar
-        v-for="products in getProducts"
-        :key="products.id"
-        :id="products.id"
-        :productName="products.name"
-        :productPrice="products.price  " 
-        :productInfo="products.info" 
-        :color="products.color" 
-        :size="products.size"/>
-
-        
-
-    </div>
-        
-    
+    <div id="Katalog" class="container">
+      <div class="row">
+        <Artiklar
+          v-for="products in getProducts"
+          :key="products.id"
+          :id="products.id"
+          :productName="products.name"
+          :productPrice="products.price  " 
+          :productInfo="products.info" 
+          :color="products.color" 
+          :size="products.size"
+          :productImage="products.image"/>
+          
+      </div>
+      <div class="row">
+        <Bilder
+          v-for="item in getImages"
+          :key="item.id"
+          :id="item.id"
+          :imgImage="item.image"
+          :imgName="item.name"/>
+      </div>
    </div>
-    
 </template>
 
 <script>
 
 import Artiklar from './Artiklar.vue'
 import Kundvagn from './Kundvagn.vue'
+import Bilder   from './Bilder.vue'
+
 
 
 
 export default {
     name: 'Katalog',
     computed: {
-
-    
+      
+      getImages (){
+        return this.$store.getters.getImages;
+      },
+        
         getProducts (){
           //return this.$store.state.myJson;
           return this.$store.getters.getProducts;
@@ -49,7 +55,7 @@ export default {
     
     components: {
       Artiklar,
-      Kundvagn,
+      Bilder,
     },
     
 }

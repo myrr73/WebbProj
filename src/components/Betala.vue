@@ -1,7 +1,8 @@
 <template>
     <div class="betala">
         <header>
-            <h1> Din Kundvagn </h1></header>
+            <h1 id="rubbe"> Din Kundvagn </h1>
+        </header>
             <section id="korgen">
                 <table class="table">
                     <tbody>
@@ -15,7 +16,7 @@
                             <td>
                             <button class="btn btn-sm btn-danger" @click="removeFromCart(index)">&times;</button>
                             </td>
-                            </tr>
+                        </tr>
                         <tr>
                             <th>TOTALT</th>
                             <th>  {{ summa }} SEK:-</th>
@@ -60,11 +61,14 @@ methods: {
 <style lang="scss" scoped>
 
 .betala {
-    width:60%;
-    position: relative;
-
+   padding: 0 20px;
+   margin: 0 10px;
+   text-align: center;
+   
 }
-
+#rubbe{
+        text-shadow: 2px 3px rgba(0,0,0, .2);
+    }
 
     
 </style>

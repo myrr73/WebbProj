@@ -35,33 +35,41 @@ computed: {
 
 <style lang="scss">
 
-body, #app {
+@import "./css/variables.scss";
+
+
+html, body, #app {
+  max-width: 100%;
+  overflow-x: hidden;
   border: 0;
   padding: 0;
   margin: 0;
 }
 
-// #bg {
-//   background-color:rgba(141, 141, 141, 0.76);
-//   position:absolute;
-//   width: 100%;
-//   height: 100%;
-//   z-index: -1;
+#bg {
+  
+  position:absolute;
+  width: 80%;
+  height: 80%;
+  z-index: -1;
 
-// }
+}
 
 #app{
   
   
-
+    
   // background-color:rgba(141, 141, 141, 0.76);
-  
+   
   
     
     #banner {
+      
       min-height: 5vh;
       max-height: 10vh;
       width: 100%;
+      color: color(background);
+      
       
       img{
           max-height: 50px;
@@ -71,16 +79,17 @@ body, #app {
 
   #nav {
    
-    // background-color:rgba(141, 141, 141, .6);
+    
     padding: 5px 0;
     border-radius: 5px;
     width: 100%;
     margin:auto;
-    box-shadow: 0 10px 30px rgba(0,0,0,.15);
+    box-shadow: 0 5px 5px rgba(0,0,0,.15);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 16px;
     font-style:italic;
     position: relative;
+    text-shadow: 1px 2px rgba(0,0,0,.2);
     
     #inner{
       margin: 0 auto;

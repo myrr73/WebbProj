@@ -1,4 +1,7 @@
 <template>
+<div>
+    
+</div>
 <!-- <div>
     
     <div id="Kundvagn" class="modal fade">
